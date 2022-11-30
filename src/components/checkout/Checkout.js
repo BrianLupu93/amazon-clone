@@ -18,7 +18,7 @@ const Checkout = () => {
 
         <div>
           <h2 className="checkout__title">Your shopping Cart</h2>
-          {basket.map((item, i) => (
+          {basket?.map((item, i) => (
             <CheckoutProduct
               key={i}
               id={item.id}
