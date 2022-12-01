@@ -4,7 +4,7 @@ import { useStateValue } from "../../StateProvider";
 import CheckoutProduct from "../checkoutProduct/CheckoutProduct";
 import "./Payment.css";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import axios from "axios";
+import axios from "../../axios";
 import CurrencyFormat from "react-currency-format";
 
 import { getBasketTotal } from "../../reducer";
