@@ -18,23 +18,24 @@ app.use(express.json());
 
 // -API routes
 
-app.get("/", (request, response) => response.status(200).send("hello"));
+// app.get("/", (request, response) => response.status(200).send("hello"));
 
-app.post("/payments/create", async (request, response) => {
-  const total = request.query.total;
-
+app.post("/payments/create", async (req, res, next) => {
+  const total = req.query.total;
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
     currency: "usd",
   });
-
-  response.status(201).send({
+  res.status(201).send({
     clientSecret: paymentIntent.client_secret,
   });
 });
 
 // -Listen command
-exports.api = functions.https.onRequest(app);
+// exports.api = functions.https.onRequest(app);
+app.listen(3500, () => {
+  console.log("running");
+});
 
 // Example endpoint
 // http://127.0.0.1:5001/clone-4f94e/us-central1/api
