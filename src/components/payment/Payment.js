@@ -16,7 +16,9 @@ const Payment = () => {
   const [disabled, setDisabled] = useState(true);
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
-  const [clientSecret, setClientSecret] = useState();
+  const [clientSecret, setClientSecret] = useState(true);
+
+  console.log(clientSecret);
 
   const stripe = useStripe();
   const elements = useElements();
