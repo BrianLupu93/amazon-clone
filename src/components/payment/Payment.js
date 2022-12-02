@@ -16,7 +16,7 @@ const Payment = () => {
   const [disabled, setDisabled] = useState(true);
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
-  const [clientSecret, setClientSecret] = useState(true);
+  const [clientSecret, setClientSecret] = useState("");
 
   console.log(clientSecret);
 
@@ -55,8 +55,11 @@ const Payment = () => {
         setError(null);
         setProcessing(false);
 
-        navigate("/orders");
+        dispatch({
+          type: "EMPTY_BASKET",
+        });
       });
+    navigate("/orders");
   };
 
   const handleChange = (event) => {

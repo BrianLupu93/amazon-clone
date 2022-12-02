@@ -20,7 +20,7 @@ app.use(express.json());
 
 // app.get("/", (request, response) => response.status(200).send("hello"));
 
-app.post("/payments/create", async (req, res, next) => {
+app.post("/payments/create", async (req, res) => {
   const total = req.query.total;
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
@@ -32,10 +32,10 @@ app.post("/payments/create", async (req, res, next) => {
 });
 
 // -Listen command
-// exports.api = functions.https.onRequest(app);
-app.listen(3500, () => {
-  console.log("running");
-});
+exports.api = functions.https.onRequest(app);
+// app.listen(3500, () => {
+//   console.log("running");
+// });
 
 // Example endpoint
 // http://127.0.0.1:5001/clone-4f94e/us-central1/api
