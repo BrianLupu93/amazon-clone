@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/amazon-clone">
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="app">
         <Routes>
           <Route path="/login" element={<Login />} />
